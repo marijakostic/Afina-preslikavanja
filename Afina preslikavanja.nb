@@ -1,0 +1,613 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     20548,        604]
+NotebookOptionsPosition[     18679,        541]
+NotebookOutlinePosition[     19153,        561]
+CellTagsIndexPosition[     19110,        558]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Afina", " ", "preslikavanja"}], "Title"]], "Input",
+ CellChangeTimes->{{3.828615554369301*^9, 3.8286155583005075`*^9}},
+ TextAlignment->Center],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Marija", " ", "Kostic", " ", 
+   RowBox[{"286", "/", "14"}]}], "Subtitle"]], "Input",
+ CellChangeTimes->{{3.8286155620913143`*^9, 3.8286155670833225`*^9}, {
+  3.8286717299808645`*^9, 3.828671734333272*^9}, {3.8287163339201603`*^9, 
+  3.828716334133371*^9}},
+ TextAlignment->Center],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Neka", " ", "je", " ", "A", " ", "matrica"}], ",", " ", 
+   RowBox[{
+   "a", " ", "v", " ", "vektor", " ", "koji", " ", "odredjuju", " ", "afino", 
+    " ", "preslikavanje", " ", "tacke", " ", 
+    RowBox[{"x", ".", " "}]}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.828671764043724*^9, 3.828671847223069*^9}, {
+  3.8287163375809765`*^9, 3.8287163417058372`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"AfinoPreslikavanje", "[", 
+     RowBox[{"A_", ",", "v_"}], "]"}], "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"A", ".", "x"}], "+", "v"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8286155728553333`*^9, 3.828615606523192*^9}, 
+   3.828615711999377*^9, {3.828671851372677*^9, 3.8286718593598905`*^9}, {
+   3.828676181626002*^9, 3.828676182874004*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Defini\[SHacek]emo", " ", "matrice", " ", "rotacije"}], ",", 
+   RowBox[{"skaliranja", " ", "i", " ", 
+    RowBox[{"smicanja", "."}]}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.8286718633690977`*^9, 3.828671884764188*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Rotacija", "[", "\[Phi]_", "]"}], ":=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{"Cos", "[", "\[Phi]", "]"}], 
+       RowBox[{"-", 
+        RowBox[{"Sin", "[", "\[Phi]", "]"}]}]},
+      {
+       RowBox[{"Sin", "[", "\[Phi]", "]"}], 
+       RowBox[{"Cos", "[", "\[Phi]", "]"}]}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.828615723668197*^9, 3.828615756927455*^9}, {
+  3.8286158145806446`*^9, 3.8286158865919056`*^9}, {3.8286687602910233`*^9, 
+  3.8286687663282337`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Skaliranje", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], ":=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"a", "0"},
+      {"0", "b"}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8286159300545816`*^9, 3.8286159342665887`*^9}, {
+  3.828615968263048*^9, 3.828615994096693*^9}, {3.828616676012949*^9, 
+  3.8286167459642715`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Smicanje", "[", "\[Lambda]_", "]"}], ":=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"1", "\[Lambda]"},
+      {"0", "1"}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8286719246252575`*^9, 3.828671979086958*^9}, {
+  3.8286761974600296`*^9, 3.828676200080834*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "Pravimo", " ", "poligon", " ", "zvezda", " ", "tako", " ", "\[SHacek]to", 
+   " ", "zadajemo", " ", "koordinate", " ", 
+   RowBox[{"temena", "."}]}], "Text"]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Zvezda", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.5", ",", "1.09"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.43", ",", "1.76"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.92", ",", "2.85"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.07", ",", "2.85"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.51", ",", "4.62"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0.93", ",", "2.85"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.92"}], ",", "2.85"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0.57", ",", "1.76"}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.828628913553498*^9, 3.828628940073544*^9}, {
+  3.828629078968712*^9, 3.8286291475293627`*^9}, {3.828671998517338*^9, 
+  3.8286720024485445`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Defini\[SHacek]emo", " ", "funkciju", " ", "za", " ", 
+  "preslikavanje", " ", 
+  RowBox[{"poligona", "."}]}]], "Input",
+ CellChangeTimes->{{3.8286762509525228`*^9, 3.828676294086598*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"AfinoPreslikavanje", "[", 
+     RowBox[{"A_", ",", "v_"}], "]"}], "[", "p_Polygon", "]"}], ":=", 
+   RowBox[{"Polygon", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"AfinoPreslikavanje", "[", 
+        RowBox[{"A", ",", "v"}], "]"}], "[", "#", "]"}], "&"}], "/@", 
+     RowBox[{"(", 
+      RowBox[{"p", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ")"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.828668824984336*^9, 3.828668899521266*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Original", "=", 
+   RowBox[{"Polygon", "[", "Zvezda", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.828668914107291*^9, 3.828668942655341*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+   "Pravimo", " ", "sliku", " ", "originalnog", " ", "poligona", " ", "i", 
+    " ", "poligona", " ", "posle", " ", "rotacije"}], ",", 
+   RowBox[{"smicanja", " ", "i", " ", 
+    RowBox[{"translacije", "."}]}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.8286763833266525`*^9, 3.828676428573639*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Slika", "=", 
+   RowBox[{
+    RowBox[{"AfinoPreslikavanje", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Rotacija", "[", 
+        RowBox[{"Pi", "/", "6"}], "]"}], ".", 
+       RowBox[{"Smicanje", "[", "1", "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "4"}], "}"}]}], "]"}], "[", 
+    RowBox[{"Polygon", "[", "Zvezda", "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8286689463525476`*^9, 3.82866902229348*^9}, {
+  3.828669106003226*^9, 3.8286692560418873`*^9}, {3.82866929745996*^9, 
+  3.8286693186603966`*^9}, {3.8286704932870846`*^9, 3.828670501718567*^9}, {
+  3.8286705368875785`*^9, 3.8286705402467704`*^9}, {3.8286705902306294`*^9, 
+  3.8286706592225757`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Red", ",", "Original"}], "}"}], "]"}], ",", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", "Slika"}], "}"}], "]"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8286690254290853`*^9, 3.82866909704881*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[1, 0, 0], 
+    PolygonBox[{{0, 0}, {1.5, 1.09}, {3, 0}, {2.43, 1.76}, {3.92, 2.85}, {
+      2.07, 2.85}, {1.51, 4.62}, {0.93, 2.85}, {-0.92, 2.85}, {0.57, 1.76}}]}, 
+   {RGBColor[0, 0, 1], 
+    PolygonBox[
+     NCache[{{3, 4}, {4.698005795801696, 6.238967690125039}, {
+       3 + Rational[3, 2] 3^Rational[1, 2], Rational[11, 2]}, {
+       5.748646441856797, 7.619204710660612}, {7.437991983620649, 
+       9.85317240078565}, {5.8358449866194375`, 8.92817240078565}, {
+       5.998735725198609, 11.066037365484107`}, {4.848576026305178, 
+       8.358172400785651}, {3.2464290293039664`, 7.433172400785651}, {
+       4.137839190817742, 6.689204710660612}}, {{3, 4}, {4.698005795801696, 
+       6.238967690125039}, {5.598076211353316, 5.5}, {5.748646441856797, 
+       7.619204710660612}, {7.437991983620649, 9.85317240078565}, {
+       5.8358449866194375`, 8.92817240078565}, {5.998735725198609, 
+       11.066037365484107`}, {4.848576026305178, 8.358172400785651}, {
+       3.2464290293039664`, 7.433172400785651}, {4.137839190817742, 
+       6.689204710660612}}]]}},
+  Axes->True]], "Output",
+ CellChangeTimes->{{3.828669077439576*^9, 3.8286692593178935`*^9}, {
+   3.8286693018747673`*^9, 3.8286693212188015`*^9}, 3.8286705054037776`*^9, {
+   3.828670598094079*^9, 3.8286706617727213`*^9}, {3.828676457004558*^9, 
+   3.8286764772909565`*^9}, 3.828676520221409*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Odredjujemo", " ", "matricu", " ", 
+   RowBox[{"transformacije", "."}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.8286765346973987`*^9, 3.8286765571824007`*^9}, {
+  3.8286766594598584`*^9, 3.8286766731098824`*^9}, {3.8287163587227693`*^9, 
+  3.8287163591283703`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AfinoPreslikavanje", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Rotacija", "[", 
+       RowBox[{"Pi", "/", "6"}], "]"}], ".", 
+      RowBox[{"Smicanje", "[", "1", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.828676568617928*^9, 3.828676586823975*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox[
+       SqrtBox["3"], "2"], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], "+", 
+       FractionBox[
+        SqrtBox["3"], "2"]}]},
+     {
+      FractionBox["1", "2"], 
+      RowBox[{
+       FractionBox["1", "2"], "+", 
+       FractionBox[
+        SqrtBox["3"], "2"]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.828676575701048*^9, 3.828676587791177*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Odredjujemo", " ", "i", " ", "vektor", " ", 
+   RowBox[{"transformacije", "."}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.828676605972382*^9, 3.8286766182783127`*^9}, {
+  3.828676675840887*^9, 3.828676684884157*^9}, {3.8287163654281435`*^9, 
+  3.828716365818144*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AfinoPreslikavanje", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Rotacija", "[", 
+       RowBox[{"Pi", "/", "6"}], "]"}], ".", 
+      RowBox[{"Smicanje", "[", "1", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "]"}], "[", 
+   RowBox[{"[", "2", "]"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.8286766280305843`*^9, 3.828676628451785*^9}, {
+  3.828676816270207*^9, 3.828676819327812*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"3"},
+      {"4"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.8286766293409863`*^9, 3.828676820763015*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Pravimo", " ", "sliku", " ", "pri", " ", "komutiranoj", " ", 
+  RowBox[{"transformaciji", "."}]}]], "Input",
+ CellChangeTimes->{{3.82867665470185*^9, 3.8286766567298536`*^9}, {
+  3.828676688986964*^9, 3.8286767070514164`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Slika2", "=", 
+   RowBox[{
+    RowBox[{"AfinoPreslikavanje", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Smicanje", "[", "1", "]"}], ".", 
+       RowBox[{"Rotacija", "[", 
+        RowBox[{"Pi", "/", "6"}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "4"}], "}"}]}], "]"}], "[", 
+    RowBox[{"Polygon", "[", "Zvezda", "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8286692830923347`*^9, 3.8286692942931547`*^9}, {
+  3.8286693339016237`*^9, 3.8286693641344757`*^9}, {3.8286716341673393`*^9, 
+  3.8286716372965183`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Red", ",", "Original"}], "}"}], "]"}], ",", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", "Slika"}], "}"}], "]"}], ",", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Opacity", "[", "0.5", "]"}], ",", "Slika2"}], "}"}], "]"}], 
+   ",", 
+   RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8286693672388816`*^9, 3.828669386348915*^9}, {
+  3.828669416956168*^9, 3.828669489714695*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[1, 0, 0], 
+    PolygonBox[{{0, 0}, {1.5, 1.09}, {3, 0}, {2.43, 1.76}, {3.92, 2.85}, {
+      2.07, 2.85}, {1.51, 4.62}, {0.93, 2.85}, {-0.92, 2.85}, {0.57, 1.76}}]}, 
+   {RGBColor[0, 0, 1], 
+    PolygonBox[
+     NCache[{{3, 4}, {4.698005795801696, 6.238967690125039}, {
+       3 + Rational[3, 2] 3^Rational[1, 2], Rational[11, 2]}, {
+       5.748646441856797, 7.619204710660612}, {7.437991983620649, 
+       9.85317240078565}, {5.8358449866194375`, 8.92817240078565}, {
+       5.998735725198609, 11.066037365484107`}, {4.848576026305178, 
+       8.358172400785651}, {3.2464290293039664`, 7.433172400785651}, {
+       4.137839190817742, 6.689204710660612}}, {{3, 4}, {4.698005795801696, 
+       6.238967690125039}, {5.598076211353316, 5.5}, {5.748646441856797, 
+       7.619204710660612}, {7.437991983620649, 9.85317240078565}, {
+       5.8358449866194375`, 8.92817240078565}, {5.998735725198609, 
+       11.066037365484107`}, {4.848576026305178, 8.358172400785651}, {
+       3.2464290293039664`, 7.433172400785651}, {4.137839190817742, 
+       6.689204710660612}}]]}, 
+   {RGBColor[0, 1, 0], Opacity[0.5], 
+    PolygonBox[
+     NCache[{{3, 4}, {5.448005795801696, 5.693967690125039}, {
+       3 + 3 (Rational[1, 2] + Rational[1, 2] 3^Rational[1, 2]), Rational[
+        11, 2]}, {6.963646441856798, 6.739204710660612}, {9.39799198362065, 
+       8.42817240078565}, {6.870844986619438, 7.50317240078565}, {
+       6.7537357251986085`, 8.756037365484106}, {5.313576026305178, 
+       6.93317240078565}, {2.7864290293039664`, 6.00817240078565}, {
+       4.422839190817742, 5.809204710660612}}, {{3, 4}, {5.448005795801696, 
+       5.693967690125039}, {7.098076211353316, 5.5}, {6.963646441856798, 
+       6.739204710660612}, {9.39799198362065, 8.42817240078565}, {
+       6.870844986619438, 7.50317240078565}, {6.7537357251986085`, 
+       8.756037365484106}, {5.313576026305178, 6.93317240078565}, {
+       2.7864290293039664`, 6.00817240078565}, {4.422839190817742, 
+       5.809204710660612}}]]}},
+  Axes->True]], "Output",
+ CellChangeTimes->{3.828669491430698*^9, 3.828671640450699*^9, 
+  3.8286767192370377`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Odredjujemo", " ", "matricu", " ", 
+   RowBox[{"transformacije", "."}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.8287163749114685`*^9, 3.8287163753326693`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AfinoPreslikavanje", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Smicanje", "[", "1", "]"}], ".", 
+      RowBox[{"Rotacija", "[", 
+       RowBox[{"Pi", "/", "6"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.8286767573635044`*^9, 3.828676770514327*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], "+", 
+       FractionBox[
+        SqrtBox["3"], "2"]}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], "+", 
+       FractionBox[
+        SqrtBox["3"], "2"]}]},
+     {
+      FractionBox["1", "2"], 
+      FractionBox[
+       SqrtBox["3"], "2"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.8286767640091157`*^9, 3.828676771465929*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Odredjujemo", " ", "i", " ", "vektor", " ", 
+   RowBox[{"transformacije", "."}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.8287163780298753`*^9, 3.828716378404276*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AfinoPreslikavanje", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Smicanje", "[", "1", "]"}], ".", 
+      RowBox[{"Rotacija", "[", 
+       RowBox[{"Pi", "/", "6"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "]"}], "[", 
+   RowBox[{"[", "2", "]"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.8286768341946383`*^9, 3.8286768349122396`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"3"},
+      {"4"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.828676836924643*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "Primecujemo", " ", "da", " ", "mno\:017eenje", " ", "matrica", " ", "ne", 
+   " ", 
+   RowBox[{"komutira", "."}]}], "Text"]], "Input",
+ CellChangeTimes->{{3.828676842509453*^9, 3.828676865792694*^9}, {
+  3.8286769774026685`*^9, 3.82867698791527*^9}, {3.8287163818228846`*^9, 
+  3.8287163820288877`*^9}}]
+},
+WindowSize->{1424, 765},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+ShowSelection->True,
+CellLabelAutoDelete->True,
+Magnification->1.5,
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 179, 4, 85, "Input"],
+Cell[727, 26, 317, 7, 65, "Input"],
+Cell[1047, 35, 412, 9, 43, "Input"],
+Cell[1462, 46, 414, 10, 43, "Input"],
+Cell[1879, 58, 272, 6, 43, "Input"],
+Cell[2154, 66, 567, 15, 59, "Input"],
+Cell[2724, 83, 404, 11, 61, "Input"],
+Cell[3131, 96, 341, 9, 61, "Input"],
+Cell[3475, 107, 207, 5, 43, "Input"],
+Cell[3685, 114, 969, 28, 71, "Input"],
+Cell[4657, 144, 212, 4, 43, "Input"],
+Cell[4872, 150, 525, 15, 43, "Input"],
+Cell[5400, 167, 180, 4, 43, "Input"],
+Cell[5583, 173, 347, 8, 43, "Input"],
+Cell[5933, 183, 728, 17, 43, "Input"],
+Cell[CellGroupData[{
+Cell[6686, 204, 383, 10, 43, "Input"],
+Cell[7072, 216, 1407, 24, 670, "Output"]
+}, Open  ]],
+Cell[8494, 243, 304, 6, 43, "Input"],
+Cell[CellGroupData[{
+Cell[8823, 253, 434, 12, 43, "Input"],
+Cell[9260, 267, 936, 30, 99, "Output"]
+}, Open  ]],
+Cell[10211, 300, 305, 6, 43, "Input"],
+Cell[CellGroupData[{
+Cell[10541, 310, 485, 13, 43, "Input"],
+Cell[11029, 325, 693, 20, 59, "Output"]
+}, Open  ]],
+Cell[11737, 348, 250, 4, 43, "Input"],
+Cell[11990, 354, 583, 15, 43, "Input"],
+Cell[CellGroupData[{
+Cell[12598, 373, 593, 16, 71, "Input"],
+Cell[13194, 391, 2154, 37, 610, "Output"]
+}, Open  ]],
+Cell[15363, 431, 198, 4, 43, "Input"],
+Cell[CellGroupData[{
+Cell[15586, 439, 436, 12, 43, "Input"],
+Cell[16025, 453, 938, 30, 99, "Output"]
+}, Open  ]],
+Cell[16978, 486, 205, 4, 43, "Input"],
+Cell[CellGroupData[{
+Cell[17208, 494, 438, 12, 43, "Input"],
+Cell[17649, 508, 669, 20, 59, "Output"]
+}, Open  ]],
+Cell[18333, 531, 342, 8, 43, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
